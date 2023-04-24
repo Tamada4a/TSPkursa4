@@ -1,0 +1,33 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    // Для построения графиков
+    implementation "org.jetbrains.lets-plot:lets-plot-common:2.1.0"
+    implementation "org.jetbrains.lets-plot:lets-plot-image-export:2.1.0"
+    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.0.2"
+
+    // Чтоб работали преыдущие библиотеки
+    implementation "org.slf4j:slf4j-api:2.0.7"
+    implementation "org.slf4j:slf4j-simple:2.0.7"
+
+    // numpy для Kotlin'a
+    implementation "org.jetbrains.kotlinx:multik-core:0.2.0"
+    implementation "org.jetbrains.kotlinx:multik-default:0.2.0"
+
+    // Библиотека для решения систем нелинейных уравнений
+    implementation project(path: 'DasOptimization')
+
+    // Вспомогательная библиотека для решения систем нелинейных уравнений
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+}
